@@ -2,6 +2,7 @@ package com.taskflow;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class TaskManager {
@@ -16,6 +17,19 @@ public class TaskManager {
 	
 	public List<Task> getAllTasks(){
 		return new ArrayList<>(tasks);
+	}
+	
+	public boolean toggleTaskCompletion(int id) {
+		Optional<Task> taskOpt = tasks.stream().filter(t->t.id() == id).findFirst();
+		if(taskOpt.isPresent()) {
+			Task oldTask = taskOpt.get();
+			int index = tasks.indexOf(oldTask);
+			tasks.set(index, oldTask.toggleComplete());
+			return true;
+		}
+		return false;
+			
+		}
 	}
 	
 	
