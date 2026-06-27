@@ -14,5 +14,9 @@ public class TaskManager {
 		return newTask;
 	}
 	
+	public List<Task> getAllTasks(){
+		return new ArrayList<>(tasks);
+	}
+	
 	
 }
