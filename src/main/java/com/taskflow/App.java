@@ -1,4 +1,4 @@
-package com.TaskFlow;
+package com.taskflow;
 
 public class App {
 
