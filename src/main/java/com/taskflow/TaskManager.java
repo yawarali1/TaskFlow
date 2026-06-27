@@ -30,7 +30,27 @@ public class TaskManager {
 		return false;
 			
 		}
+	
+	public double calculateCompletionRate() {
+		if(tasks.isEmpty()) {
+			return 0.0;
+		}
+		long completedCount = tasks.stream ().filter(Task::isCompleted).count();
+		
+		double rate = ((double) completedCount/ tasks.size()) * 100;
+		
+		return Math.round(rate * 100) * 100.0;
+		
+		
 	}
 	
 	
-}
+	
+	
+	
+	
+	
+	}
+	
+	
+
